@@ -22,7 +22,8 @@ public class ItemController {
 	
 	@RequestMapping("/item/{itemId}")
 	@ResponseBody
-	public TbItem getItemById(@PathVariable Long itemId){ //@PathVariable 
+	//@PathVariable URL 模板映射 ，把url路径里的itemId映射到 value="itemId"，参数的名称要一致
+	public TbItem getItemById(@PathVariable(value="itemId") Long itemId){
 		TbItem tbItem = itemService.getItemById(itemId);
 		return tbItem;
 	}
