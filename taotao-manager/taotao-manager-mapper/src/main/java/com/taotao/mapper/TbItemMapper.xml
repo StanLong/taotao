@@ -16,7 +16,13 @@
 		<result column="updated" property="updated" jdbcType="TIMESTAMP" />
 	</resultMap>
 
-	<select id="getItemById" parameterType="long" resultMap="BaseResultMap">
+	<!-- <sql id="query_item_where">
+		<if test="id != null">
+			and id=#{itemId}
+		</if>
+	</sql> -->
+	
+	<select id="getItemById" parameterType="Long" resultMap="BaseResultMap">
 		SELECT
 		id
 		,title
@@ -30,6 +36,22 @@
 		,created
 		,updated
 		FROM tb_item
-		WHERE id = #{itemId}
+		where id = #{itemId}
+	</select>
+	
+	<select id="getItemList" resultMap="BaseResultMap">
+		SELECT
+		id
+		,title
+		,sell_point
+		,price
+		,num
+		,barcode
+		,image
+		,cid
+		,status
+		,created
+		,updated
+		FROM tb_item
 	</select>
 </mapper>
