@@ -7,6 +7,8 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.junit.Test;
 
+import com.taotao.common.utils.FtpUtil;
+
 /**
  * FTP测试类
  * @author 矢量
@@ -35,5 +37,15 @@ public class TestFtp {
 		ftpClient.storeFile("helloFtp.jpg", fileInputStream);
 		//关闭连接
 		ftpClient.logout();
+	}
+	
+	/**
+	 * 测试Ftp工具类
+	 * @throws Exception
+	 */
+	@Test
+	public void testFtpUtil() throws Exception{
+		FileInputStream fileInputStream = new FileInputStream(new File("D:\\1.jpg"));
+		FtpUtil.uploadFile("192.168.235.20", 21, "ftpuser", "ftpuser", "/home/ftpuser/www/images", "/2019/08/03", "helloFtp3.jpg", fileInputStream);
 	}
 }
