@@ -49,9 +49,9 @@
 		FROM tb_item
 	</select>
 	
-	<insert id="createItem" parameterType="tbItem">
+	<insert id="createItem">
 		INSERT INTO tb_item(id, title, sell_point, price, num, barcode, image, cid, status, created, updated) 
-		values(#{id},#{title},#{sell_point},#{price},#{num},#{barcode},#{image},#{cid},#{status},#{created}, #{updated})
+		values(#{id},#{title},#{sellPoint},#{price},#{num},#{barcode},#{image},#{cid},#{status},#{created}, #{updated})
 	</insert>
 	
 </mapper>

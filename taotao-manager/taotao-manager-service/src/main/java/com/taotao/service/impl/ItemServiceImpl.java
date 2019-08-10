@@ -11,8 +11,10 @@ import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EasyUIDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.IDUtils;
+import com.taotao.mapper.TbItemDescMapper;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemDesc;
 import com.taotao.service.ItemService;
 
 /**
@@ -26,6 +28,9 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Autowired
 	private TbItemMapper itemMapper;
+	
+	@Autowired
+	private TbItemDescMapper itemDescMapper;
 	
 	@Override
 	public TbItem getItemById(long itemId) {
@@ -53,9 +58,10 @@ public class ItemServiceImpl implements ItemService {
 
 	/**
 	 * 保存商品
+	 * @throws Exception 
 	 */
 	@Override
-	public TaotaoResult createItem(TbItem tbItem) {
+	public TaotaoResult createItem(TbItem tbItem, String desc) throws Exception {
 		// 生成商品id
 		Long itemId = IDUtils.genItemId();
 		tbItem.setId(itemId);
@@ -64,9 +70,27 @@ public class ItemServiceImpl implements ItemService {
 		tbItem.setCreated(new Date());
 		tbItem.setUpdated(new Date());
 		itemMapper.createItem(tbItem);
+		TaotaoResult result = createItemDesc(itemId, desc);
+		if(result.getStatus() != 200){
+			throw new Exception();
+		}
 		return TaotaoResult.ok();
 	}
 
-	
+	/**
+	 * 添加商品描述
+	 * @param itemId
+	 * @param itemDesc
+	 * @return
+	 */
+	public TaotaoResult createItemDesc(Long itemId, String itemDesc){
+		TbItemDesc tbItemDesc = new TbItemDesc();
+		tbItemDesc.setItemId(itemId);
+		tbItemDesc.setItemDesc(itemDesc);
+		tbItemDesc.setUpdated(new Date());
+		tbItemDesc.setCreated(new Date());
+		itemDescMapper.createTbItemDesc(tbItemDesc);
+		return TaotaoResult.ok();
+	}
 
 }
