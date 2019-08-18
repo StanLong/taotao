@@ -29,6 +29,9 @@ public class ItemParamServiceImpl implements ItemParamService{
 	@Override
 	public TaotaoResult getItemParamByCid(long cid){
 		List<TbItemParam> itemParamList = itemParamMapper.getItemParamByCid(cid);
+		for (TbItemParam tbItemParam : itemParamList) {
+			System.out.println(tbItemParam.toString());
+		}
 		if (null != itemParamList && itemParamList.size() > 0){
 			return TaotaoResult.ok(itemParamList.get(0));
 		}
