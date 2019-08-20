@@ -44,6 +44,7 @@
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
 		
+		<!-- JSP相关 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -54,7 +55,6 @@
 			<artifactId>jsp-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
 	</dependencies>
 	
 	<build>
@@ -65,7 +65,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<!-- 配置 tomcat 运行的端口和路径 -->
 				<configuration>
-					<port>8082</port>
+					<port>8081</port>
 					<path>/</path>
 				</configuration>
 			</plugin>
