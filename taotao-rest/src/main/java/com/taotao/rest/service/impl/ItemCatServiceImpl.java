@@ -28,8 +28,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 	public CatResult getItemCatList() {
 		CatResult catResult = new CatResult();
 		catResult.setData(getCatList(0));
-		
-		return null;
+		return catResult;
 	}
 	
 	/**
@@ -40,6 +39,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 	private List<?> getCatList(long parentId){
 		List<TbItemCat> catList = itemCatMapper.getCatList(parentId);
 		List resultList = new ArrayList<>();
+		int count = 0;
 		for (TbItemCat itemCat : catList) {
 			//父节点
 			if(itemCat.getIsParent()){
@@ -52,6 +52,11 @@ public class ItemCatServiceImpl implements ItemCatService {
 				catNode.setUrl("/products/"+ itemCat.getId() +".html");
 				catNode.setItem(getCatList(itemCat.getId()));
 				resultList.add(catNode);
+				count ++;
+				//只取14个大父类
+				if(parentId == 0 && count >= 14){
+					break;
+				}
 			//叶子节点
 			}else{
 				resultList.add("/products/"+ itemCat.getId() +".html|" + itemCat.getName());
