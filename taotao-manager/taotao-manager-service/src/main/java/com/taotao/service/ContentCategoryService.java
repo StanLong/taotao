@@ -3,6 +3,7 @@ package com.taotao.service;
 import java.util.List;
 
 import com.taotao.common.pojo.EasyUITreeNode;
+import com.taotao.common.pojo.TaotaoResult;
 
 /**
  * 
@@ -13,4 +14,8 @@ import com.taotao.common.pojo.EasyUITreeNode;
 public interface ContentCategoryService {
 
 	List<EasyUITreeNode> getCategoryList(long parentId);
+	
+	TaotaoResult insertContentCategory(long parentId, String name);
+	
+	TaotaoResult deleteContentCategory(long id);
 }

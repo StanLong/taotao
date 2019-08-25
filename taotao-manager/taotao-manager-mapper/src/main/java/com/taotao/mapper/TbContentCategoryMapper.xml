@@ -23,10 +23,64 @@
 		,updated
 	</sql>
 	
-	<select id="getCategoryList" resultMap="BaseResultMap">
+	<sql id="QUERY_WHERE">
+		<where>
+			<if test="id!=null">
+				and id = #{id}
+			</if>
+			<if test="parentId!=null">
+				and parent_id = #{parentId}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="getCategoryListByParentId" resultMap="BaseResultMap">
 		SELECT
 			<include refid="BASE_COLUMNS"/>
 		FROM tb_content_category
 		WHERE parent_id = #{parentId}
 	</select>
+	
+	<select id="getByPrimaryKey" resultMap="BaseResultMap">
+		SELECT
+			<include refid="BASE_COLUMNS"/>
+		FROM tb_content_category
+		WHERE id = #{id}
+	</select>
+	
+	
+	<insert id="insertContentCategory">
+		<selectKey keyProperty="id" resultType="long" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO tb_content_category(
+			parent_id
+			,name
+			,status
+			,sort_order
+			,is_parent
+			,created
+			,updated
+		)VALUES(
+		#{parentId}, #{name}, #{status},#{sortOrder},#{isParent},#{created},#{updated}
+		)
+	</insert>
+	
+	<select id="getContentCategory" resultMap="BaseResultMap">
+		SELECT
+			<include refid="BASE_COLUMNS"/>
+		FROM tb_content_category
+		<include refid="QUERY_WHERE"/>
+	</select>
+	
+	<update id="updateContentCategory">
+		UPDATE tb_content_category set is_parent= #{isParent}
+		<include refid="QUERY_WHERE"/>
+	</update>
+	
+	
+	<delete id="deleteContentCategory">
+		DELETE FROM tb_content_category 
+		WHERE id = #{id}
+	</delete>
 </mapper>

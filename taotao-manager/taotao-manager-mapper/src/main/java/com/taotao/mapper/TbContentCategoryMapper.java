@@ -6,5 +6,15 @@ import com.taotao.pojo.TbContentCategory;
 
 public interface TbContentCategoryMapper {
 	
-	public List<TbContentCategory> getCategoryList(long parentId);
+	public TbContentCategory getByPrimaryKey(long id);
+	
+	public List<TbContentCategory> getCategoryListByParentId(long parentId);
+	
+	public void insertContentCategory(TbContentCategory contentCategory);
+	
+	public TbContentCategory getContentCategory(TbContentCategory contentCategory);
+	
+	public void updateContentCategory(TbContentCategory contentCategory);
+	
+	public void deleteContentCategory(TbContentCategory contentCategory);
 }
