@@ -74,7 +74,15 @@
 	</select>
 	
 	<update id="updateContentCategory">
-		UPDATE tb_content_category set is_parent= #{isParent}
+		UPDATE tb_content_category 
+			<set>
+				<if test="isParent != null">
+					is_parent = #{isParent},
+				</if> 
+				<if test="name != null">
+					name = #{name}
+				</if>
+			</set>
 		<include refid="QUERY_WHERE"/>
 	</update>
 	

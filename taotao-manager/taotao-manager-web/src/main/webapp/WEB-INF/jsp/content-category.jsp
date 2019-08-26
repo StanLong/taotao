@@ -38,7 +38,11 @@ $(function(){
         			}
         		});
         	}else{
-        		$.post("/content/category/update",{id:node.id,name:node.text});
+        		$.post("/content/category/update",{id:node.id,name:node.text}, function(data){
+        			if(data.status == 200){
+        				$.messager.alert('提示','重命名成功');
+        			}
+        		});
         	}
         }
 	});
