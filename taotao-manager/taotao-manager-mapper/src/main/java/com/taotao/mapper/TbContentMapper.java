@@ -7,4 +7,6 @@ import com.taotao.pojo.TbContent;
 public interface TbContentMapper {
 	
 	List<TbContent> getContentList(TbContent content);
+	
+	void insertContent(TbContent content);
 }

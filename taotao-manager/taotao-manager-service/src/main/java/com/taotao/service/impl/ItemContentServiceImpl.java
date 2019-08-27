@@ -1,5 +1,6 @@
 package com.taotao.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EasyUIDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.mapper.TbContentMapper;
 import com.taotao.pojo.TbContent;
 import com.taotao.service.ItemContentService;
@@ -32,6 +34,14 @@ public class ItemContentServiceImpl implements ItemContentService{
 		PageInfo<TbContent> pageInfo = new PageInfo<>(contentList);
 		result.setTotal(pageInfo.getTotal());
 		return result;
+	}
+
+	@Override
+	public TaotaoResult insertContent(TbContent content) {
+		content.setCreated(new Date());
+		content.setUpdated(new Date());;
+		contentMapper.insertContent(content);
+		return TaotaoResult.ok();
 	}
 	
 	

@@ -41,4 +41,30 @@
 			</if>
 		</where>
 	</select>
+	
+	<insert id="insertContent">
+		INSERT INTO tb_content(
+			category_id
+			,title
+			,sub_title
+			,title_desc
+			,url
+			,pic
+			,pic2
+			,content
+			,created
+			,updated
+		)VALUES(
+			#{categoryId}
+			,#{title}
+			,#{subTitle}
+			,#{titleDesc}
+			,#{url}
+			,#{pic}
+			,#{pic2}
+			,#{content}
+			,#{created}
+			,#{updated}
+		)
+	</insert>
 </mapper>
