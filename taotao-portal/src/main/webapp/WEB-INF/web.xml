@@ -49,6 +49,16 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>taotao-manager</servlet-name>
+		<!-- 伪静态化 -->
 		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	<!--
+		出现406问题
+			1、查看jackson包是否存在
+			2、请求链接后缀不能是 html 
+	 -->
+	<servlet-mapping>
+		<servlet-name>taotao-manager</servlet-name>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -85,7 +85,7 @@ public class HttpClientTest {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		
 		// 创建一个GET对象
-		HttpPost post = new HttpPost("http://localhost:8082/httpclient/post.html");
+		HttpPost post = new HttpPost("http://localhost:8082/httpclient/post.do");
 		
 		//执行请求
 		CloseableHttpResponse response = httpClient.execute(post);
@@ -109,16 +109,16 @@ public class HttpClientTest {
 	public void doPostWithParam() throws Exception{
 		// 创建一个 httpclient对象
 		CloseableHttpClient httpClient = HttpClients.createDefault();
-		
+	
 		// 创建一个post对象
-		HttpPost post = new HttpPost("http://localhost:8082/httpclient/postwithparam.html");
+		HttpPost post = new HttpPost("http://localhost:8082/httpclient/postwithparam.do");
 		
 		//创建一个Entity， 模拟一个表单
 		List<NameValuePair> kvList = new ArrayList<>();
-		kvList.add(new BasicNameValuePair("username", "zhangsan"));  //有中文乱码问题
+		kvList.add(new BasicNameValuePair("username", "张三"));  //有中文乱码问题
 		kvList.add(new BasicNameValuePair("password", "123456"));
 		
-		StringEntity entity = new UrlEncodedFormEntity(kvList);
+		StringEntity entity = new UrlEncodedFormEntity(kvList, "utf-8");
 		
 		post.setEntity(entity);
 		//执行请求
