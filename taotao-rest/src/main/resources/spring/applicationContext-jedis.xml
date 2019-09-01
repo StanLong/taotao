@@ -40,13 +40,14 @@
 	
 
 	<!-- 配置 jedis 单机版实例 -->
-	<!-- <bean id="redisClient" class="redis.clients.jedis.JedisPool">
+	<bean id="redisClient" class="redis.clients.jedis.JedisPool">
 		<constructor-arg name="host" value="192.168.235.20"/>
 		<constructor-arg name="port" value="6379"/>
-	</bean> -->
+	</bean>
+	<bean id="jedisClient" class="com.taotao.rest.dao.JedisClientSingle"></bean>
 	
 	<!-- 配置 jedis 集群版实例， 单机版和集群版不能共用 -->
-	<bean id="redisClient" class="redis.clients.jedis.JedisCluster">
+	<!-- <bean id="redisClient" class="redis.clients.jedis.JedisCluster">
 		<constructor-arg name="nodes">
 			<set>
 				<bean class="redis.clients.jedis.HostAndPort">
@@ -76,5 +77,7 @@
 			</set>
 		</constructor-arg>
 		<constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
-	</bean>
+	</bean> 
+	<bean id="jedisClientCluster" class="com.taotao.rest.dao.JedisClientCluster"></bean>
+	-->
 </beans>

@@ -1,13 +1,11 @@
 package com.taotao.rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.taotao.common.utils.JsonUtils;
 import com.taotao.rest.pojo.CatResult;
 import com.taotao.rest.service.ItemCatService;
 
@@ -28,7 +26,7 @@ public class ItemCatController {
 	 * @param callback
 	 * @return
 	 */
-	//方法一
+	//jsonp 方法一
 	/*@RequestMapping(value="/itemCat/list", 
 				produces=MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
 	@ResponseBody
@@ -39,6 +37,7 @@ public class ItemCatController {
 		return result;
 	}*/
 	
+	// jsonp 方法二
 	@RequestMapping(value="/itemCat/list")
 	@ResponseBody
 	public Object getItemCatList(String callback){
