@@ -51,7 +51,7 @@ public class ItemContentServiceImpl implements ItemContentService{
 	@Override
 	public TaotaoResult insertContent(TbContent content) {
 		content.setCreated(new Date());
-		content.setUpdated(new Date());;
+		content.setUpdated(new Date());
 		contentMapper.insertContent(content);
 		
 		try {
