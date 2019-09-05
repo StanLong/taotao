@@ -21,10 +21,16 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 	
+	/**
+	 * 把es中的数据导入到mysql
+	 * @return
+	 */
 	@RequestMapping("/importAll")
 	@ResponseBody
 	public TaotaoResult importAllItems(){
 		return itemService.importAllItems();
 	}
+	
+	
 	
 }
