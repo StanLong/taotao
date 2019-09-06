@@ -53,7 +53,7 @@ public class SearchDaoImpl implements SearchDao {
 			}
 			item.setTitle(title);
 			item.setImage((String)solrDocument.get("item_image"));
-			item.setPrice((String)solrDocument.get("item_price"));
+			item.setPrice((Long)solrDocument.get("item_price"));
 			item.setSell_point((String)solrDocument.get("item_sell_point"));
 			item.setCatrgory_name((String)solrDocument.get("item_category_name"));
 			itemList.add(item);

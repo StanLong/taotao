@@ -1,8 +1,8 @@
 package com.taotao.search.service;
 
-import javax.naming.directory.SearchResult;
+import com.taotao.search.pojo.SearchResult;
 
 public interface SearchService {
 
-	SearchResult search(String queryString, int page, int rows);
+	SearchResult search(String queryString, int page, int rows) throws Exception;
 }

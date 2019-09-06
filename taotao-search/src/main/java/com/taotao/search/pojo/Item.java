@@ -5,7 +5,7 @@ public class Item {
 	private String id;
 	private String title;
 	private String sell_point;
-	private String price;
+	private Long price;
 	private String image;
 	private String catrgory_name;
 	private String item_desc;
@@ -27,10 +27,10 @@ public class Item {
 	public void setSell_point(String sell_point) {
 		this.sell_point = sell_point;
 	}
-	public String getPrice() {
+	public Long getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 	public String getImage() {
