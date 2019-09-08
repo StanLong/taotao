@@ -11,8 +11,20 @@
 		<result column="item_desc" property="itemDesc" jdbcType="LONGVARCHAR" />
 	</resultMap>
 	
+	<sql id="BASE_COLUMN">
+		item_id
+		,item_desc
+		,created
+		,updated
+	</sql>
+	
 	<insert id="createTbItemDesc">
 		insert tb_item_desc(item_id, item_desc, created, updated)
 		values(#{itemId}, #{itemDesc}, #{created}, #{updated})
 	</insert>
+	
+	<select id="getItemDesc" resultMap="ResultMapWithBLOBs">
+		SELECT <include refid="BASE_COLUMN"/>
+		FROM tb_item_desc WHERE item_id = #{itemId}
+	</select>
 </mapper>
