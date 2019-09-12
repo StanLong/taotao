@@ -16,6 +16,7 @@ import com.taotao.rest.service.ItemService;
  * 2019年9月7日
  */
 @Controller
+@RequestMapping("/item")
 public class ItemController {
 
 	@Autowired
