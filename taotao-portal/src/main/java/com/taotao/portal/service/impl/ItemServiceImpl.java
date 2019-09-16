@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.HttpClientUtil;
 import com.taotao.portal.pojo.ItemInfo;
+import com.taotao.portal.service.ItemService;
 
 /**
  * 
@@ -15,7 +16,7 @@ import com.taotao.portal.pojo.ItemInfo;
  * 2019年9月8日
  */
 @Service
-public class ItemService implements com.taotao.portal.service.ItemService {
+public class ItemServiceImpl implements ItemService {
 
 	@Value("${REST_BASE_URL}")
 	private String REST_BASE_URL;

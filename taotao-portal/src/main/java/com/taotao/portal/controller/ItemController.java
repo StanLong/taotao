@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.taotao.portal.pojo.ItemInfo;
-import com.taotao.portal.service.impl.ItemService;
+import com.taotao.portal.service.impl.ItemServiceImpl;
 
 @Controller
 public class ItemController {
 
 	@Autowired
-	private ItemService itemService;
+	private ItemServiceImpl itemService;
 	
 	@RequestMapping("/item/{itemId}")
 	public String getItemById(@PathVariable Long itemId, Model model){

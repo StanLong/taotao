@@ -1,6 +1,8 @@
 package com.taotao.portal.pojo;
 
-public class ItemInfo extends Item{
+import com.taotao.pojo.TbItem;
+
+public class ItemInfo extends TbItem{
 
 	public String[] getImages(){
 		String image = getImage();

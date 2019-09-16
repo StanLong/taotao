@@ -22,7 +22,7 @@ public class ItemController {
 	private ItemService itemService;
 	
 	/**
-	 * 把es中的数据导入到mysql
+	 * 将mysql里的数据导入solr
 	 * @return
 	 */
 	@RequestMapping("/importAll")
