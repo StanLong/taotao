@@ -30,4 +30,10 @@ public class ItemController {
 		String itemDesc = itemService.getItemDescById(itemId);
 		return itemDesc;
 	}
+	
+	@RequestMapping(value="/item/param/{itemId}" ,produces=MediaType.TEXT_HTML_VALUE+";charset=utf-8")
+	@ResponseBody
+	public String getItemParam(@PathVariable Long itemId){
+		return itemService.getItemParam(itemId);
+	}
 }
