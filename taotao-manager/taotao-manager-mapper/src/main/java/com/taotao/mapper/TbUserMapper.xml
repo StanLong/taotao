@@ -26,13 +26,13 @@
 		FROM tb_user
 		<where>
 			<if test="username != null">
-				username = #{content}
+				username = #{username}
 			</if>
 			<if test="phone != null">
-				phone = #{content}
+				phone = #{phone}
 			</if>
 			<if test="email != null">
-				email = #{content}
+				email = #{email}
 			</if>
 		</where>
 	</select>
