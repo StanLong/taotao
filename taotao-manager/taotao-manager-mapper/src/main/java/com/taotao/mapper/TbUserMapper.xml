@@ -25,14 +25,14 @@
 		SELECT <include refid="BASE_COLUMN"/>
 		FROM tb_user
 		<where>
-			<if test="type==1">
-				username = #{type}
+			<if test="username != null">
+				username = #{content}
 			</if>
-			<if test="type==2">
-				phone = #{type}
+			<if test="phone != null">
+				phone = #{content}
 			</if>
-			<if test="type==3">
-				email = #{type}
+			<if test="email != null">
+				email = #{content}
 			</if>
 		</where>
 	</select>
