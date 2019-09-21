@@ -36,4 +36,22 @@
 			</if>
 		</where>
 	</select>
+	
+	<insert id="createUser">
+		INSERT INTO tb_user(
+			username
+			,password
+			,phone
+			,email
+			,created
+			,updated)
+		VALUES(
+			#{username}
+			,#{password}
+			,#{phone}
+			,#{email}
+			,#{created}
+			,#{updated}
+			)
+	</insert>
 </mapper>
