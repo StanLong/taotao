@@ -8,4 +8,6 @@ public interface TbUserMapper {
 	List<TbUser> selectByType(TbUser user);
 
 	void createUser(TbUser user);
+	
+	List<TbUser> selectUser(TbUser user);
 }

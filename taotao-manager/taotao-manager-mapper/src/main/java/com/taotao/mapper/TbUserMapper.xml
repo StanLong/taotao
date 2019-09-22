@@ -54,4 +54,10 @@
 			,#{updated}
 			)
 	</insert>
+	
+	<select id="selectUser" resultMap="BaseResultMap">
+		SELECT <include refid="BASE_COLUMN"/>
+		FROM tb_user
+		WHERE username =#{username} AND password = #{password}
+	</select>
 </mapper>
