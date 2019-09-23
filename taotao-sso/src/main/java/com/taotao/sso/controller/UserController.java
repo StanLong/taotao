@@ -112,7 +112,6 @@ public class UserController {
 
 		try {
 			result = userService.getUserByToken(token);
-			return result;
 		} catch (Exception e) {
 			result = TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
 		}
