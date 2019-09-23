@@ -1,6 +1,7 @@
 var TT = TAOTAO = {
 	checkLogin : function(){
 		var _ticket = $.cookie("TT_TOKEN");
+		alert(_ticket);
 		if(!_ticket){
 			return ;
 		}
@@ -11,6 +12,7 @@ var TT = TAOTAO = {
 			success : function(data){
 				if(data.status == 200){
 					var username = data.data.username;
+					alert(username);
 					var html = username + "，欢迎来到淘淘！<a href=\"http://www.taotao.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
 					$("#loginbar").html(html);
 				}
@@ -20,6 +22,7 @@ var TT = TAOTAO = {
 }
 
 $(function(){
+	alert("helloworld");
 	// 查看是否已经登录，如果已经登录查询登录信息
 	TT.checkLogin();
 });
