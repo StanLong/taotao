@@ -8,5 +8,8 @@
 </head>
 <body>
 	<h1>成功加入购物车</h1>
+	<span>
+		<a href="/cart/cart.html">取购物车结算</a>
+	</span>
 </body>
 </html>
