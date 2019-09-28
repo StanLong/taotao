@@ -73,7 +73,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<!-- 配置 tomcat 运行的端口和路径 -->
 				<configuration>
-					<port>8081</port>
+					<port>8085</port>
 					<path>/</path>
 				</configuration>
 			</plugin>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.taotao.mapper.TbOrderItemMapper">
+	<resultMap id="BaseResultMap" type="com.taotao.pojo.TbOrderItem">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="item_id" property="itemId" jdbcType="VARCHAR" />
+		<result column="order_id" property="orderId" jdbcType="VARCHAR" />
+		<result column="num" property="num" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="BIGINT" />
+		<result column="total_fee" property="totalFee" jdbcType="BIGINT" />
+		<result column="pic_path" property="picPath" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<sql id="BASE_COLUMN">
+		id
+		,item_id
+		,order_id
+		,num
+		,title
+		,price
+		,total_fee
+		,pic_path
+	</sql>
+	
+	<insert id="insertOrderItem">
+		INSERT INTO tb_order_item(<include refid="BASE_COLUMN"/>)
+		VALUES(
+			#{id}
+			,#{itemId}
+			,#{orderId}
+			,#{num}
+			,#{title}
+			,#{price}
+			,#{totalFee}
+			,#{picPath}
+		)
+	</insert>
+</mapper>

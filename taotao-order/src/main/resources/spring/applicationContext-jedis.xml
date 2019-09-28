@@ -44,7 +44,7 @@
 		<constructor-arg name="host" value="192.168.235.20"/>
 		<constructor-arg name="port" value="6379"/>
 	</bean>
-	<bean id="jedisClient" class="com.taotao.order.dao.JedisClientSingle"></bean>
+	<bean id="jedisClient" class="com.taotao.order.dao.impl.JedisClientSingle"></bean>
 	
 	<!-- 配置 jedis 集群版实例， 单机版和集群版不能共用 -->
 	<!-- <bean id="redisClient" class="redis.clients.jedis.JedisCluster">
