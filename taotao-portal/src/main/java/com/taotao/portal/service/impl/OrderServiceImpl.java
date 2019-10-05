@@ -26,6 +26,9 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public String createOrder(Order order) {
+		// 创建订单之前补全用户信息
+		// 从cookie中获取TT_TOKEN中的内容
+		
 		String json = HttpClientUtil.doPostJson(ORDER_BASE_URL + ORDER_CREATE_URL, JsonUtils.objectToJson(order));
 		
 		TaotaoResult result = TaotaoResult.format(json);

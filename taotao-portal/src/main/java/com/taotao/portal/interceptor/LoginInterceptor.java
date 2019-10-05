@@ -41,12 +41,14 @@ public class LoginInterceptor implements HandlerInterceptor {
 		// 2、根据 token换取用户信息，调用sso系统接口
 		// 如果取不到用户信息，跳转到登录页面，把用户请求的url作为参数传递给登录页面
 		TbUser user = userService.getUserByToken(token);
+		
 		if(null == user){
 			response.sendRedirect(userService.SSO_BASE_URL + userService.SSO_PAGE_LOGIN
 					+ "?redirect=" + request.getRequestURL());
 			// 返回 false
 			return false;
 		}
+		request.setAttribute("user", user);
 		//3、取到用户信息，放行
 		return true;
 	}
