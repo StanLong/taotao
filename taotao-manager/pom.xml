@@ -36,6 +36,10 @@
 				<configuration>
 					<port>8080</port>
 					<path>/</path>
+					<!-- 热部署上传路径及用户名和密码 -->
+					<url>http://192.168.235.20:8085/manager/text</url>
+					<username>tomcat</username>
+					<password>tomcat</password>
 				</configuration>
 			</plugin>
 		</plugins>

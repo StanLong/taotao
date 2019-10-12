@@ -3,6 +3,8 @@ package com.taotao.rest.jedis;
 import java.util.HashSet;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,13 +19,16 @@ import redis.clients.jedis.JedisPool;
  *
  * 2019年9月1日
  */
-public class testJedis {
+public class TestJedis {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(TestJedis.class);
 	
 	/**
 	 * jedis 客户端（单机版）
 	 */
 	@Test
 	public void testJedisSingle(){
+		LOGGER.debug("jedis单机版");
 		//创建客户端
 		Jedis jedis = new Jedis("192.168.235.20", 6379);
 		//调用 jedis 对象方法，方法名和 redis 的命令一致
@@ -32,6 +37,7 @@ public class testJedis {
 		System.out.println(string);
 		//关闭jedis
 		jedis.close();
+		LOGGER.debug("关闭连接");
 	}
 	
 	/**
